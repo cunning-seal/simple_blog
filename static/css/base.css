@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    background-image: url("http://hq-oboi.ru/photo/krasivaya_dolina_1920x1200.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body div {
+    width: 100%;
+}
+
+
+
+#header {
+    height: 12%;
+    /* background-color: greenyellow; */
+}
+
+#header div {
+    height: 100%;
+}
+
+#logo img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 80%;
+}
+
+#logo span{
+    color: white;
+}
+
+#menu div{
+    text-align: center;
+}
+
+#menu p{
+    margin-top: 30px;
+    font-size: 25px;
+    color: white;
+}
+
+#content {
+    height: 80%;
+    /* background-color: lightblue; */
+}
+
+#footer {
+    height: 10%;
+    /* background-color: pink; */
+}
+
