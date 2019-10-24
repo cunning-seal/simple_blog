@@ -1,33 +1,30 @@
-<?php
-function get_auth_data($login, $password){
-    $mysqli = new mysqli("localhost", "root", "", "blog_db");
-    if ($mysqli->connect_errno) {
-        echo "Не удалось подключиться к MySQL: " . $mysqli->connect_error;
+<?
+require_once('static/scripts/auth.php');
+
+if (!empty($_POST))
+{
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+
+    if (login($login, $password))
+    {
+        header("Location: http://192.168.64.2/site/index.php"); 
     }
-    // $sql = "SELECT * FROM users where login='$login' and password='$password'";
-    $login = $mysqli->real_escape_string($login);
-    $sql = "select * from users where login='$login'";
-    $res = $mysqli->query($sql);
-    if (!$res) {
-        echo "Не удалось выполнить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
+    else
+    {   
+        $result = "Неправильный логин и/или пароль";
+        require('static/templates/login/login_form_template.php');
     }
     
-    $row = mysqli_fetch_assoc($res);
-    $ps = $row['password'];
-
-    if (md5(md5($password)) === $ps)
+}
+else{
+    if(check_login())
     {
-        echo "GUCHI GANG";
+        $result = "Вы уже залогинены, ".$_SESSION['username'];
     }
     else {
-        echo "HREN TEBE";
+        $result = "";
     }
-    
-
-
+    require('static/templates/login/login_form_template.php');
 }
-
-$login = "q";
-$passw = "qadmin";
-get_auth_data($login, $passw);
 ?>

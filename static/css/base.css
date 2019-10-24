@@ -9,11 +9,8 @@ body div {
     width: 100%;
 }
 
-
-
 #header {
     height: 12%;
-    /* background-color: greenyellow; */
 }
 
 #header div {
@@ -42,11 +39,17 @@ body div {
 
 #content {
     height: 80%;
-    /* background-color: lightblue; */
+    text-align: center;
+}
+
+#content p{
+    margin-top: 30px;
+    font-size: 25px;
+    color: white;
+    color: white;
 }
 
 #footer {
     height: 10%;
     /* background-color: pink; */
 }
-

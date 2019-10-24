@@ -33,6 +33,20 @@ function register($login, $password, $username){
     }
 }
 
-require('static/scripts/reg_form.php');
+
+if (!empty($_POST))
+{
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+    $username = $_POST['username'];
+    $agreement = $_POST['agreement'];
+
+    $result = register($login, $password, $username);
+
+    require("static/templates/registration/reg_response_template.php");
+}
+else {
+    require('static/templates/registration/reg_form_template.php');
+}
 ?>
 
