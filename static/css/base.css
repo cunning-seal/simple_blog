@@ -38,6 +38,7 @@ body div {
 }
 
 #content {
+    margin-top: 20px;
     height: 80%;
     text-align: center;
 }
@@ -45,7 +46,6 @@ body div {
 #content p{
     margin-top: 30px;
     font-size: 25px;
-    color: white;
     color: white;
 }
 

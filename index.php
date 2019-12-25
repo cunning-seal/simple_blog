@@ -13,6 +13,10 @@
             <p>Приветствую, <?echo $_SESSION['username'];?></p>
             <?
         }
+
+        require('static/scripts/posts.php');
+        $data = show_posts();
+
         ?>
     </div>
 

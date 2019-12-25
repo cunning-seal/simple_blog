@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
     <? require('static/templates/base/head.php'); ?>
+    <link rel="stylesheet" href="static/css/posts/post.css">
 </head>
 <body>
     <?require("static/templates/base/header.php");?>
@@ -10,9 +11,27 @@
         if(check_login())
         {
             ?>
-            <p>Посты за последние 10 часов</p>
+                <div id="button_create_post" class="container">
+                    <p>Добавить пост</p>
+                </div>
+            <?
             
-            <?require("static/templates/posts/post.php");
+            require('static/scripts/posts.php');
+            $posts_data = show_user_posts();
+            if (!empty($posts_data))
+            {
+                 foreach($posts_data as $post)
+                 {
+                    require("static/templates/posts/post.php");
+                 
+                 }
+            }
+            else
+            {
+                ?>
+                    <p>У вас нет постов</p>
+                <?
+            }
         }
         else{
             ?>
