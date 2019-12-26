@@ -14,6 +14,11 @@
         <?require("static/templates/base/footer.html");?>
         <?require("static/templates/base/b_scripts.html");?>
 
+        <script>
+        $("document").ready(function(){
+            $(".navbar-nav #second").addClass('active');
+        })
+    </script>
 
     </body>
 </html>

@@ -1,29 +1,21 @@
-.post{
-    width: 500px; 
-    height: 100px;
-    background-color: white;
-    opacity: .7;
-    margin-top: 5px;
-    border: 2px solid black;
+form {
+    width: 100%;
 }
 
-.post p{
-    color: black !important;
+input{
+    /* width: 300px; */
+}
+#content{
+    position: relative;
 }
 
-#button_create_post {
-    background-color: blue;
-    width: 500px;
-    border: 2px solid black;
-    background-color: rgb(183, 225, 238);
-    border-radius: 50px;
+#posts_content{
+    position: absolute;
+    width: 100%;
+    left: 25%;
 }
 
-#button_create_post:hover {
-    background-color: rgb(240, 228, 116);
-}
 
-#button_create_post p{
-    color: black;
+img{
+    border: 1px solid black;
 }
-

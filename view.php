@@ -11,20 +11,21 @@
         if(check_login())
         {
             ?>
-                <div id="button_create_post" class="container">
-                    <p>Добавить пост</p>
-                </div>
+                <button type="button" class="btn btn-primary" id="btn-create-post">Опубликовать пост</button>
             <?
             
             require('static/scripts/posts.php');
             $posts_data = show_user_posts();
+
             if (!empty($posts_data))
             {
+                ?><div id="posts_content"><?
+                
                  foreach($posts_data as $post)
                  {
-                    require("static/templates/posts/post.php");
-                 
+                    require("static/templates/posts/users_posts.php");
                  }
+
             }
             else
             {
@@ -32,6 +33,7 @@
                     <p>У вас нет постов</p>
                 <?
             }
+            ?> </div><?
         }
         else{
             ?>
@@ -43,6 +45,11 @@
 
     <? require("static/templates/base/footer.html"); ?>
     <? require("static/templates/base/b_scripts.html"); ?>
+    <script>
+        $("document").ready(function(){
+            $(".navbar-nav #second").addClass('active');
+        })
+    </script>
 </body>
 
 

@@ -22,8 +22,11 @@
 
     <? require("static/templates/base/footer.html"); ?>
     <? require("static/templates/base/b_scripts.html"); ?>
+
+    <script>
+        $("document").ready(function(){
+            $(".navbar-nav #first").addClass('active');
+        })
+    </script>
 </body>
-
-
-
 </html>

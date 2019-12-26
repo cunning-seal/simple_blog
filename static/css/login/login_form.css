@@ -1,24 +1,7 @@
-#submit{
-    margin-top: 50px;
+form {
+    width: 100%;
 }
 
-#content p{
-    color: white;
-}
-
-#content{
-    position: relative;
-}
-
-form{
-    text-align: center;
-    position: absolute;
-    left: 35%;
-    top: 15%;
-    display: inline-block;
-    font-size: 25px;
-}
-
-form p{
+input{
     width: 300px;
 }

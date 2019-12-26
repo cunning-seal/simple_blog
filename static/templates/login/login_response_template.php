@@ -13,7 +13,7 @@
         <?require('static/templates/base/header.php');?>
 
         <div id="content" class="container">
-            <div>
+            <div class="row">
                 <p><? echo $result; ?></p>
             </div>
         </div>
