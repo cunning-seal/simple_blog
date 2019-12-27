@@ -30,7 +30,7 @@ function create_post($title, $text, $username){
 function show_posts()
 {
     $mysqli = new mysqli("localhost", "root", "", "blog_db");
-    $sql = "select * from posts";
+    $sql = "select posts.id, posts.title, posts.text, posts.created, users.username, posts.likes from posts inner join users on posts.FK_user_id = users.id order by posts.created DESC";
     if ($result = $mysqli->query($sql))
     {
         if ($posts_result = $mysqli->query($sql))
@@ -73,14 +73,22 @@ function show_user_posts()
 function like_post($post_id)
 {
     $mysqli = new mysqli("localhost", "root", "", "blog_db");
-    $username = $_SESSION['login'];
+    $username = $_SESSION['username'];
     if ($username){
-        $sql = "select * from users where login='$username'";
+        $sql = "select * from posts where id=$post_id";
         if ($result = $mysqli->query($sql))
         {
-            //....
+            $likes = $result->fetch_all(MYSQLI_ASSOC)[0]['likes'];
+            $likes ++;
+            $sql = "update posts set likes=$likes where id=$post_id";
+            if($result = $mysqli->query($sql))
+            {
+                return "True";
+            }
+            else {
+                return "False";
+            }
         }
-        //....
     }
 }
 

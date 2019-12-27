@@ -36,9 +36,7 @@
             <div class="col-md-8">
             </div>
             <div class="col-md-4">
-                <p>
-                    Всего туков: <?echo $post['likes'];?>
-                </p>
+                <button class="btn btn-primary btn-like <?if ($enabled){echo 'active';} else {echo 'disabled';}; ?>"><?echo $post['likes'];?> tuks</button>
             </div>
         </div>
     </div>

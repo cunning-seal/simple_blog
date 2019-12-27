@@ -1,6 +1,26 @@
 <?php
 
-function register($login, $password, $username){
+function register($login, $password, $username, $agreement){
+
+    if(!$login)
+    {
+        return "Введите логин";
+    }
+
+    if(!$password)
+    {
+        return "Введите пароль";
+    }
+
+    if(!$username)
+    {
+        return "Введите никнейм";
+    }
+
+    // if(!$agreement)
+    // {
+    //     return "Примите условия на обработку личных данных";
+    // }
 
     $mysqli = new mysqli("localhost", "root", "", "blog_db");
         
@@ -18,6 +38,10 @@ function register($login, $password, $username){
         /* очищаем результирующий набор */
         $result->close();
     }
+    // if(!$agreement)
+    // {
+    //     return "Примите условия на обработку личных данных";
+    // }
 
     $password_hash = md5(md5(trim($password)));
 
@@ -36,16 +60,18 @@ function register($login, $password, $username){
 
 if (!empty($_POST))
 {
-    $login = $_POST['login'];
-    $password = $_POST['password'];
-    $username = $_POST['username'];
-    $agreement = $_POST['agreement'];
+    $login = $_POST['login'] ?? false;
+    $password = $_POST['password'] ?? false;
+    $username = $_POST['username'] ?? false;
+    $agreement = $_POST['agreement'] ?? false;
 
-    $result = register($login, $password, $username);
+    $result = register($login, $password, $username, $agreement);
 
-    require("static/templates/registration/reg_response_template.php");
+        require("static/templates/registration/reg_form_template.php");
+    
 }
 else {
+    $result = "";
     require('static/templates/registration/reg_form_template.php');
 }
 ?>

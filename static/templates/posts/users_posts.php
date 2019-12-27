@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-4">
                 <p>
-                    Всего туков: <?echo $post['likes'];?>
+                    Всего tuks: <?echo $post['likes'];?>
                 </p>
             </div>
         </div>
